@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layouts/main">	
+<head>
+	<title>Home Page</title>
+</head>
+<body>
+		
+	<div layout:fragment="content">
+		
+		<h2>Witajcie</h2>
+		Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] </b>
+		Welcome <span sec:authentication="name">Guest</span>
+		<div class="row">
+			<div class="col-md-12">
+ 				<p>Witajcie w naszej Bajce. </p>
+				<p>Słoń zagra na fujarce. </p>
+			Logged in user: <b th:inline="text"  class="user"> [[${#httpServletRequest.remoteUser}]] &nbsp; </b> &nbsp;
+			Host: <b th:inline="text"  class="user"> [[${#httpServletRequest.serverName}]]  &nbsp;</b> 
+			
+			Port: <b th:inline="text"  class="user"> [[${#httpServletRequest.serverPort}]]  &nbsp;</b>
+			ContextPath: <b th:inline="text"  class="user"> [[${#httpServletRequest.contextPath}]]  &nbsp;</b>
+			pathInfo: <b th:inline="text"  class="user"> [[${#httpServletRequest.pathInfo}]]  &nbsp;</b>
+			<p th:text="${ip + 'IP'}">____ip</p>
+			<p th:text="${'-- Server Name --------:' +sn}">____ip</p>
+			<p th:text="${'-- Remote User --------:' +ru}">____ip</p>
+			<p th:text="${'-- session id --------:' + sid}">____ip</p>
+			
+			</div>
+		</div>
+	    
+	    <article>
+			<header>
+				<h2 th:text="${post.title}">title</h2>
+				<p th:text="${#calendars.format(post.postedOn, 'M/dd/yyyy hh:mm:ss a')}">postedOn</p>
+			</header>
+			<section th:utext="${post.teaser}">
+				teaser
+			</section>
+			<footer>
+				<a th:href="|@{/posts/view/}${post.slug}|">Read More</a>
+				<address>
+					Posted By <a th:href="|mailto:${post.author.email}|"> <span th:text="|${post.author.firstName} ${post.author.lastName}|">author</span></a>
+				</address>
+			</footer>
+			<hr/>
+		</article>
+		
+	</div>
+		
+</body>
+</html>
