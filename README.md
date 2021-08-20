@@ -2,7 +2,7 @@
 
 Based on  Dan Vega application crud_auth. 
 (https://github.com/danvega  , https://www.danvega.dev/ )  ----------------->
-Thank you Dan Vega for your lessons,  all are great inspiration for many people.  <-------------------
+Thank you Dan Vega for your java  Spring lessons,  all are great inspiration for many people.  <-------------------
 In developed above project I made a few changes. 
 For example there were added new features :
 - bcrypt credentials & authentication based on roles ::
